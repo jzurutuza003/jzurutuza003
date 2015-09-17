@@ -1,0 +1,44 @@
+<!doctype html public
+"-//W3C//DTD HTML 4.01//EN“>
+<html>
+<head>
+<title>
+Registro
+</title>
+
+</head>
+<script> 
+function vervalores(){  
+            var sAux=""; 
+            var frm = document.getElementById("registro"); 
+            for (i=1;i<frm.elements.length;i++) 
+            { 
+                        sAux += "NOMBRE: " + frm.elements[i].name + " "; 
+                        sAux += "VALOR: " + frm.elements[i].value + "\n" 
+; 
+            } 
+            alert(sAux); 
+} 
+</script> 
+<body>
+<FONT SIZE="7">Registrate</FONT>
+<A HREF="layout.html" target="_blank">
+<img align=right src="http://www.veryicon.com/icon/ico/Object/Heartquake%20Prevention/Casa.ico" alt="Por si acaso" title="Información de la herramienta" height="50px" width="50px" /> 
+</a><BR>
+<HR noshade>
+
+<p align=center> Nombre: <input type="text"> </p>
+<p align=center> Contraseña: <input type="password"> </p>
+<p align=center> Repita contraseña: <input type="password"> </p>
+<p align=center> Correo: <input type="text"> </p>
+<p align=center> Telefono: <input type="text"> </p>
+<p align=center> Especialidad: <select name="Especialidad"> 
+<option>Ingenieria del software</option> 
+<option>Ingenieria de computadores</option> 
+<option>Computacion</option> 
+</select></p>
+<p align=center> Tecnologias y herramientas: <TEXTAREA> </TEXTAREA> </p>
+<p align=center>  <input type="submit" value="Registrarse" form id='registro' name='registro' onSubmit='verva
+lores()'>  </p>
+</body>
+</html>
