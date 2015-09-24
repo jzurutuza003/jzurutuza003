@@ -1,0 +1,23 @@
+
+
+  body {
+   
+    color: purple;
+    background-color: #DCD9D9; 
+	font: 16px Arial, serif;
+	}
+	#alerta, #alerta2, #alerta3,#alerta4, #alerta5{
+	
+	overflow: hidden;
+	padding: 20px;
+	background-color: #FEADAD;
+	border: 1px solid #e9b3b3;
+	color: #FF3939;
+	}
+	
+	
+	 address {
+    margin-top: 3em;
+    padding-top: 1em;	
+    border-top: thin dotted }
+ 

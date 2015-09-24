@@ -1,0 +1,153 @@
+<!doctype html public
+"-//W3C//DTD HTML 4.01//EN“>
+<html>
+<head>
+<title>
+Registro
+</title>
+<link rel="stylesheet" href="estilos/miestilo.css">
+
+
+
+
+</head>
+<script type="text/javascript"> 
+
+function validarEmail() {
+  if (/^\w+([\.-]?\w+)*\d{3}@ikasle\.ehu\.(es|eus)$/.test(document.getElementById("correo").value)){
+   
+  } else {
+			document.getElementById("alerta4").style.display = 'block';		
+  }
+			document.getElementById("alerta2").style.display = 'none';
+			document.getElementById("alerta3").style.display = 'none';
+			document.getElementById("alerta").style.display = 'none';
+			document.getElementById("alerta5").style.display = 'none';
+}
+function vervalores(){  
+            var sAux=""; 
+            var frm = document.getElementById("registro"); 
+            for (i=0;i<frm.elements.length-1;i++) 
+            { 
+                        sAux += "NOMBRE: " + frm.elements[i].name + " "; 
+                        sAux += "VALOR: " + frm.elements[i].value + "\n" 
+; 
+            } 
+            alert(sAux); 
+} 
+function validar_Password(){
+	var pass= document.getElementById("pass").value;
+		if(pass.length <6){
+		document.getElementById("alerta2").style.display = 'block';
+		
+	}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta3").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta5").style.display = 'none';
+	
+}
+function validar_telefono(){
+	var telf= document.getElementById("telf").value;
+	if(/^\d{9}$/.test(telf)){
+	}else{		
+		document.getElementById("alerta5").style.display = 'block';
+		
+	}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta3").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta2").style.display = 'none';
+}
+function confirmacion(){
+	var pass= document.getElementById("pass").value;
+	var confirm= document.getElementById("confirm").value;
+		if(pass!=confirm){
+			document.getElementById("alerta3").style.display = 'block';
+			
+		}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta2").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta5").style.display = 'none';
+}
+function obligatorios(){
+	var list=document.getElementById("registro"); 
+	var p= new String("Si");
+	
+	var i=0;
+	if(document.getElementById("alerta2").style.display == 'none'&&
+			document.getElementById("alerta3").style.display == 'none'&&
+			document.getElementById("alerta4").style.display == 'none'&&
+			document.getElementById("alerta5").style.display == 'none'){
+		while(i<list.elements.length-3&& p=="Si") {
+	
+			if(list.elements[i].value==''){
+				p=new String("no");
+				document.getElementById(list.elements[i].name+="a").style.display = 'block';
+				document.getElementById("alerta").style.display = 'block';
+				document.getElementById("alerta2").style.display = 'none';
+				document.getElementById("alerta3").style.display = 'none';
+				document.getElementById("alerta4").style.display = 'none';
+				document.getElementById("alerta5").style.display = 'none';
+
+				return false;
+			}
+			i++;
+		}
+		if(p=="Si"){
+			vervalores();
+		}
+		return true;
+	}else{
+		return false;
+	}
+}
+	
+
+</script> 
+<body>
+<FONT SIZE="7">Registrate</FONT>
+<A HREF="layout.html" target="_blank">
+<span class="right"><a href="layout.html"> <img align=right src="http://www.veryicon.com/icon/ico/Object/Heartquake%20Prevention/Casa.ico" alt="Por si acaso" title="Información de la herramienta" height="50px"/></a></span>
+
+
+
+
+<div class="alert-danger"  id="alerta" style="display:none;">
+    <strong>Error!</strong> Complete todas las casillas marcadas con *.
+  </div>
+<div class="alert-danger"  id="alerta2" style="display:none;">
+    <strong>Error!</strong> El password debe contener minimo 6 caracteres.
+  </div>
+<div class="alert-danger"  id="alerta3" style="display:none;">
+    <strong>Error!</strong> El password y la confirmacion son diferentes.
+  </div>
+  <div class="alert-danger"  id="alerta4" style="display:none;">
+    <strong>Error!</strong> El correo electronico es incorrecto. 
+	El correo lo debe formar una palabra con un numero de 3 digitos al final y el dominio(@ikasle.ehu.es o @ikasle.ehu.eus).
+  </div>
+  <div class="alert-danger"  id="alerta5" style="display:none;">
+    <strong>Error!</strong> El telefono debe de tener por lo menos 9 digitos.
+  </div>
+</a><BR>
+<HR noshade id="raya">
+<form id='registro' name='registro' onSubmit='return obligatorios()'>  
+<p align=center> Nombre:* <input type="text" name="Nombre" id="name">  
+<p align=center> Password:* <input type="password" name="Password"  id="pass" onBlur='validar_Password()'> </p>
+<p align=center> Confirm password:* <input type="password" name="Confirm password" id="confirm" onBlur='confirmacion()'></p>
+<p align=center> Correo:* <input type="text" name="Correo" id="correo" onBlur='validarEmail()'></p>
+<p align=center> Telefono:* <input type="text" name="Telefono" id="telf" onBlur='validar_telefono()'> </p>
+<p align=center> Especialidad:* <select name="Especialidad"> 
+<option>Ingenieria del software</option> 
+<option>Ingenieria de computadores</option> 
+<option>Computacion</option> 
+</select></p>
+<p align=center> Tecnologias y herramientas: <TEXTAREA name="Comentario"> </TEXTAREA> </p>
+<p align=center> <input type="file" name="UPLOAD" size="23"> </p>
+<p align=center>  <input type="submit" >
+ </form>
+<address>Creada el 17 de septiembre del 2015<br>
+   Sistemas Web</address>
+</body>
+</html>
