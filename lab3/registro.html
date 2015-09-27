@@ -24,17 +24,77 @@ function validarEmail() {
 			document.getElementById("alerta").style.display = 'none';
 			document.getElementById("alerta5").style.display = 'none';
 }
+function deshacer(){
+	if(document.getElementById("img")!=null){
+		document.body.removeChild(document.getElementById("img"));
+	}
+	document.getElementById("up").value="";
+
+
+}
 function vervalores(){  
             var sAux=""; 
             var frm = document.getElementById("registro"); 
+			
             for (i=0;i<frm.elements.length-1;i++) 
             { 
+				if(frm.elements[i].type!='button'){
                         sAux += "NOMBRE: " + frm.elements[i].name + " "; 
-                        sAux += "VALOR: " + frm.elements[i].value + "\n" 
-; 
-            } 
+                        sAux += "VALOR: " + frm.elements[i].value + "\n"; 
+					
+				} 
+			}
             alert(sAux); 
 } 
+
+function imagens(){
+
+	if(document.getElementById("up").value!=""){
+		if(document.getElementById("imagen")==null){
+			var variable= document.createElement("P");  
+			variable.setAttribute('align','center');
+			variable.setAttribute('id','img');
+			var vari= document.createElement("IMG");  
+			vari.name="imagen";
+			vari.id="imagen";
+			vari.setAttribute('height','200px');
+			vari.setAttribute('width','200px');
+			var foto=document.getElementById("up").value;
+			vari.src=foto;
+			variable.appendChild(vari);
+			document.body.insertBefore(variable,document.getElementById("registro")); 
+			
+		}else{
+		
+			document.getElementById("imagen").src=document.getElementById("up").value;
+		}
+	}
+	return true;
+		
+}
+function otro(){
+var  p= document.getElementById("espe").value;
+
+	if(p=="Otro"){
+		var h= document.createElement("P");  
+		h.setAttribute('align','center');
+		h.setAttribute('id','caxa');
+		var j= document.createElement("INPUT");  
+		j.type="text";
+		j.name="Especialidad_alternativa";
+		j.id="caja";
+		var textnode = document.createTextNode("Escriba aqui su especialidad: ");
+		h.appendChild(textnode);
+		h.appendChild(j);
+		var currentDiv = document.getElementById("registro"); 
+		currentDiv.insertBefore(h,document.getElementById("area")); 
+	}else{
+		var currentDiv = document.getElementById("registro"); 
+		currentDiv.removeChild(document.getElementById("caxa"));
+	}
+
+
+}
 function validar_Password(){
 	var pass= document.getElementById("pass").value;
 		if(pass.length <6){
@@ -84,7 +144,7 @@ function obligatorios(){
 	
 			if(list.elements[i].value==''){
 				p=new String("no");
-				document.getElementById(list.elements[i].name+="a").style.display = 'block';
+				
 				document.getElementById("alerta").style.display = 'block';
 				document.getElementById("alerta2").style.display = 'none';
 				document.getElementById("alerta3").style.display = 'none';
@@ -95,6 +155,7 @@ function obligatorios(){
 			}
 			i++;
 		}
+		
 		if(p=="Si"){
 			vervalores();
 		}
@@ -133,18 +194,19 @@ function obligatorios(){
 </a><BR>
 <HR noshade id="raya">
 <form id='registro' name='registro' onSubmit='return obligatorios()'>  
-<p align=center> Nombre:* <input type="text" name="Nombre" id="name">  
+<p align=center id= "nombre"> Nombre:* <input type="text" name="Nombre" id="name">  
 <p align=center> Password:* <input type="password" name="Password"  id="pass" onBlur='validar_Password()'> </p>
 <p align=center> Confirm password:* <input type="password" name="Confirm password" id="confirm" onBlur='confirmacion()'></p>
 <p align=center> Correo:* <input type="text" name="Correo" id="correo" onBlur='validarEmail()'></p>
 <p align=center> Telefono:* <input type="text" name="Telefono" id="telf" onBlur='validar_telefono()'> </p>
-<p align=center> Especialidad:* <select name="Especialidad"> 
-<option>Ingenieria del software</option> 
-<option>Ingenieria de computadores</option> 
-<option>Computacion</option> 
+<p align=center> Especialidad:* <select name="Especialidad" id="espe" onchange="otro()"> 
+<option value="Ingenieria del software">Ingenieria del software</option> 
+<option value="Ingenieria de computadores">Ingenieria de computadores</option> 
+<option value="Computacion">Computacion</option>
+<option value="Otro">Otro...</option> 
 </select></p>
-<p align=center> Tecnologias y herramientas: <TEXTAREA name="Comentario"> </TEXTAREA> </p>
-<p align=center> <input type="file" name="UPLOAD" size="23"> </p>
+<p align=center id="area"> Tecnologias y herramientas: <TEXTAREA name="Comentario" > </TEXTAREA> </p>
+<p align=center> <input type="file" name="Archivo" id="up" size="23" > <input type=button onclick='imagens()' value="Mostrar" id="mostrar" size="23"><input type=button onclick='deshacer()' value="Deshacer" id="DI" size="23" ></p>
 <p align=center>  <input type="submit" >
  </form>
 <address>Creada el 17 de septiembre del 2015<br>
