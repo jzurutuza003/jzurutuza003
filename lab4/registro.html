@@ -193,11 +193,11 @@ function obligatorios(){
   </div>
 </a><BR>
 <HR noshade id="raya">
-<form id='registro' name='registro' method="post" action='Registrar.php' onSubmit='return obligatorios()' >  
+<form id='registro' name='registro' method="post" action='RegistrarUsuarioConFoto.php' onSubmit='return obligatorios()' >  
 <p align=center id= "nombre"> Nombre:* <input type="text" name="Nombre" id="name">  
 <p align=center> Password:* <input type="password" name="Password"  id="pass" onBlur='validar_Password()'> </p>
 <p align=center> Confirm password:* <input type="password" name="Confirm password" id="confirm" onBlur='confirmacion()'></p>
-<p align=center> Correo:* <input type="text" name="Correo" id="correo" onBlur='validarEmail()'></p>
+<p align=center> Correo:* <input type="text" name="Correo" id="correo" ></p>
 <p align=center> Telefono:* <input type="text" name="Telefono" id="telf" onBlur='validar_telefono()'> </p>
 <p align=center> Especialidad:* <select name="Especialidad" id="espe" onchange="otro()"> 
 <option value="Ingenieria del software">Ingenieria del software</option> 
