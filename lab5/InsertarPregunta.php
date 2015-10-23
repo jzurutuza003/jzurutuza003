@@ -40,6 +40,7 @@ if($_SESSION['logueado']=='1'){
 		
 		<html>
 		<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title> Insertar Pregunta </title>
 		<link rel="STYLESHEET" type="text/css"
 		href="estilo.css">
@@ -52,11 +53,11 @@ if($_SESSION['logueado']=='1'){
 				<p id='p1'>Pregunta:
 					<input type='text' id='Correo' name='Pregunta'></p>
 				<p id='p2'>Respuesta: <input type='text' id='pass'name='Respuesta'></p>
-				<p id='p4'>Valoracion: <input type='radio' id='1'name='Valoracion'>1
-									<input type='radio' id='2'name='Valoracion'>2
-									<input type='radio' id='3'name='Valoracion'>3
-									<input type='radio' id='4'name='Valoracion'>4
-									<input type='radio' id='5'name='Valoracion'>5
+				<p id='p4'>Valoracion: <input type='radio' id='1'name='Valoracion' value=1>1
+									<input type='radio' id='2'name='Valoracion'value=2>2
+									<input type='radio' id='3'name='Valoracion'value=3>3
+									<input type='radio' id='4'name='Valoracion'value=4>4
+									<input type='radio' id='5'name='Valoracion'value=5>5
 				</p>
 				<p id='p3'><input type='submit' id='boton' value='Insertar'></p>
 			</div>

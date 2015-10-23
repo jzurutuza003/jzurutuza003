@@ -17,7 +17,7 @@ mysql_select_db("u878461769_mysql",$usu);
  }else{
 	 
 	   session_start();
-        $_SESSION['correo'] = $row['$correo'];
+        $_SESSION['correo'] = $correo;
 		$_SESSION['logueado']=1;
 		header("Location:InsertarPregunta.php");
  }

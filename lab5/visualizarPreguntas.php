@@ -18,6 +18,7 @@ $usu=mysql_connect("mysql.hostinger.es","u878461769_mysql","abcd1234");
 	?>
 	<html>
 		<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title> Visualizar Preguntas Pregunta </title>
 		<link rel="STYLESHEET" type="text/css"
 		href="estilo_v.css">
