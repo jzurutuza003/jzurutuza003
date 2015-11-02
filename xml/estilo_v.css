@@ -1,0 +1,13 @@
+#p{
+	position:relative;
+	left:10%;
+	display: list-item;
+	list-style-image: url(s.gif);
+	list-style-position: inside;
+	font: oblique bold 120% cursive; 
+	font-size: 2em;
+}
+#titulo{
+	font: oblique bold 120% cursive; 
+	font-size: 5em;
+}

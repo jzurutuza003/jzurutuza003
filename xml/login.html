@@ -1,0 +1,41 @@
+<!doctype html public "-//W3C//DTD HTML 4.01//EN?>
+<html>
+<head>
+<title> Resgistrar </title>
+<link rel="STYLESHEET" type="text/css"
+href="estilo.css">
+</head>
+<body>
+<form action="login.php" method="post" id='formulario'>
+<div id='login'> 
+	<p id='titulo'> Login </p>
+	<p id='p1'>Correo:
+	<input type='text' id='correo' name='correo'></p>
+	<p id='p2'>Password: <input type='password' id='Pass'name='pass'></p>
+  
+<p id='p3'><input type='submit' id='boton' value='Registrarse'></p>
+</div>
+</form>
+<?php 
+if (isset($_POST['correo']))
+{
+	$Password=$_POST['pass'];
+	$correo=$_POST['correo'];
+	$usu=mysql_connect("mysql.hostinger.es","u878461769_mysql","abcd1234");
+
+mysql_select_db("u878461769_mysql",$usu);
+ $buscarUsuario = "SELECT * FROM usuario WHERE Correo = '$correo' Password='$Password' "; 
+ $result = mysql_query($buscarUsuario); 
+ $count = mysql_num_rows($result); 
+ if($count==0){
+	echo "<FONT COLOR=RED>Datos incorrectos !!</FO
+NT>";
+ }else{
+	 echo"Logueado";
+	   session_start();
+        $_SESSION['correo'] = $row['$correo'];
+ }
+ mysql_close($usu);
+?>
+</body>
+</html>
