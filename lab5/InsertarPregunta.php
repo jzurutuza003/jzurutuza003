@@ -48,7 +48,7 @@ if($_SESSION['logueado']=='1'){
 		$assessmentItem->addAttribute('complexity',$_POST['Valoracion']);
 		$assessmentItem->addAttribute('subject',$_POST['Valoracion']);
 		
-		if (!$xml->asXML('preguntas.xml') )
+		if (!$xml->asXML('preguntas.xml'))
 		{
 		throw new Exception($error);
 		}
@@ -58,10 +58,10 @@ if($_SESSION['logueado']=='1'){
 	
 	}catch(Exception $error){
 		 echo '<script language="javascript">alert("Pregunta no introducida");</script>'; 
-		
+		 exit();
 		
 	}
-		 echo '<script language="javascript">alert("Pregunta introducida");</script>'; 
+		echo '<script language="javascript">alert("Pregunta introducida");</script>'; 
 		sleep(2);
 	header("Location:VisualizarXml.php");
 	
