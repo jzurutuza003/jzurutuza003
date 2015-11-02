@@ -46,7 +46,7 @@ if($_SESSION['logueado']=='1'){
 		$correctResponse=$assessmentItem->addChild('correctResponse'); 
 		$value=$correctResponse->addChild('value',$_POST['Respuesta']); 
 		$assessmentItem->addAttribute('complexity',$_POST['Valoracion']);
-		$assessmentItem->addAttribute('subject',$_POST['Valoracion']);
+		$assessmentItem->addAttribute('subject',$_POST['Tematica']);
 		
 		if (!$xml->asXML('preguntas.xml'))
 		{
