@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<assessmentItems>
+	<assessmentItem complexity="2" subject="Web">
+		<itemBody>
+			<p>Tag HTML para a&#xF1;adir un formulario</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				FORM
+			</value>
+		</correctResponse>
+	</assessmentItem>
+		<assessmentItem complexity="4" subject="Internet">
+		<itemBody>
+			<p>Este protocolo acabar&#xE1; funcionando 
+			incluso entre dos latas unidas por un cord&#xF3;n</p>
+		</itemBody>
+		<correctResponse>
+			<value>
+				TCP/IP
+			</value>
+		</correctResponse>
+	</assessmentItem>
+<assessmentItem complexity="3" subject="3"><itemBody><p>hola</p></itemBody><correctResponse><value>hola</value></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p/></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p/></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>fasdasRespuesta=Tematica=Valoracion=undefined</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>aaaaaaaaaaaaaaaaaaaa</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>zuuuuuuuuuuuuuu</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>jjjjjjjjjjjj</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>qqqqqqqqqqqqqqqqq</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>vvvk</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>z</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>y</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>p</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="" subject=""><itemBody><p>c</p></itemBody><correctResponse><value/></correctResponse></assessmentItem><assessmentItem complexity="3" subject="lllll"><itemBody><p>yyyyyy</p></itemBody><correctResponse><value>uuuuuu</value></correctResponse></assessmentItem><assessmentItem complexity="4" subject="sdfad"><itemBody><p>dgfadfasd</p></itemBody><correctResponse><value>sdfadf</value></correctResponse></assessmentItem><assessmentItem complexity="undefined" subject=""><itemBody><p>dddd</p></itemBody><correctResponse><value>das</value></correctResponse></assessmentItem></assessmentItems>

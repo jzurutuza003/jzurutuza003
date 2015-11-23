@@ -1,0 +1,283 @@
+<!doctype html public
+"-//W3C//DTD HTML 4.01//EN“>
+<html>
+<head>
+<title>
+Registro
+</title>
+<link rel="stylesheet" href="estilos/miestilo.css">
+
+
+
+
+</head>
+<script type="text/javascript"> 
+
+function validarEmail() {
+  if (/^[a-z]+\d{3}@ikasle\.ehu\.(es|eus)$/.test(document.getElementById("correo").value)){
+   
+  } else {
+			document.getElementById("alerta4").style.display = 'block';		
+  }
+			document.getElementById("alerta2").style.display = 'none';
+			document.getElementById("alerta3").style.display = 'none';
+			document.getElementById("alerta").style.display = 'none';
+			document.getElementById("alerta5").style.display = 'none';
+
+}
+function deshacer(){
+	if(document.getElementById("img")!=null){
+		document.body.removeChild(document.getElementById("img"));
+	}
+	document.getElementById("up").value="";
+
+
+}
+function vervalores(){  
+            var sAux=""; 
+            var frm = document.getElementById("registro"); 
+			
+            for (i=0;i<frm.elements.length-1;i++) 
+            { 
+				if(frm.elements[i].type!='button'){
+                        sAux += "NOMBRE: " + frm.elements[i].name + " "; 
+                        sAux += "VALOR: " + frm.elements[i].value + "\n"; 
+					
+				} 
+			}
+            alert(sAux); 
+} 
+
+function imagens(){
+
+	if(document.getElementById("up").value!=""){
+		if(document.getElementById("imagen")==null){
+			var variable= document.createElement("P");  
+			variable.setAttribute('align','center');
+			variable.setAttribute('id','img');
+			var vari= document.createElement("IMG");  
+			vari.name="imagen";
+			vari.id="imagen";
+			vari.setAttribute('height','200px');
+			vari.setAttribute('width','200px');
+			var foto=document.getElementById("up").value;
+			vari.src=foto;
+			variable.appendChild(vari);
+			document.body.insertBefore(variable,document.getElementById("registro")); 
+			
+		}else{
+		
+			document.getElementById("imagen").src=document.getElementById("up").value;
+		}
+	}
+	return true;
+		
+}
+function otro(){
+var  p= document.getElementById("espe").value;
+
+	if(p=="Otro"){
+		var h= document.createElement("P");  
+		h.setAttribute('align','center');
+		h.setAttribute('id','caxa');
+		var j= document.createElement("INPUT");  
+		j.type="text";
+		j.name="Especialidad_alternativa";
+		j.id="caja";
+		var textnode = document.createTextNode("Escriba aqui su especialidad: ");
+		h.appendChild(textnode);
+		h.appendChild(j);
+		var currentDiv = document.getElementById("registro"); 
+		currentDiv.insertBefore(h,document.getElementById("area")); 
+	}else{
+		var currentDiv = document.getElementById("registro"); 
+		currentDiv.removeChild(document.getElementById("caxa"));
+	}
+
+
+}
+function validar_Password(){
+	var pass= document.getElementById("pass").value;
+		if(pass.length <6){
+		document.getElementById("alerta2").style.display = 'block';
+		
+	}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta3").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta5").style.display = 'none';
+
+	
+}
+function validar_telefono(){
+	var telf= document.getElementById("telf").value;
+	if(/^\d{9}$/.test(telf)){
+document.getElementById("alerta5").style.display = 'none';
+	}else{		
+		document.getElementById("alerta5").style.display = 'block';
+		
+	}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta3").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta2").style.display = 'none';
+
+}
+function confirmacion(){
+	var pass= document.getElementById("pass").value;
+	var confirm= document.getElementById("confirm").value;
+		if(pass!=confirm){
+			document.getElementById("alerta3").style.display = 'block';
+			
+		}
+		document.getElementById("alerta").style.display = 'none';
+		document.getElementById("alerta2").style.display = 'none';
+		document.getElementById("alerta4").style.display = 'none';
+		document.getElementById("alerta5").style.display = 'none';
+
+}
+function obligatorios(){
+	var list=document.getElementById("registro"); 
+	var p= new String("Si");
+	
+	var i=0;
+	if(document.getElementById("alerta2").style.display == 'none'&&
+			document.getElementById("alerta3").style.display == 'none'&&
+			document.getElementById("alerta4").style.display == 'none'&&
+			document.getElementById("alerta5").style.display == 'none'&&
+document.getElementById("alerta6").style.display == 'none' &&
+document.getElementById("alerta7").style.display == 'none'){
+		while(i<list.elements.length-3&& p=="Si") {
+	
+			if(list.elements[i].value==''){
+				p=new String("no");
+				
+				document.getElementById("alerta").style.display = 'block';
+				document.getElementById("alerta2").style.display = 'none';
+				document.getElementById("alerta3").style.display = 'none';
+				document.getElementById("alerta4").style.display = 'none';
+				document.getElementById("alerta5").style.display = 'none';
+                               
+
+				return false;
+			}
+			i++;
+		}
+
+
+		
+		if(p=="Si"){
+			vervalores();
+		}
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function pedirDatos(){
+
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function()
+		{
+
+			if(xmlhttp.readyState==4){
+
+
+if(xmlhttp.responseText=='NO'){
+
+document.getElementById("alerta6").style.display = 'block';
+
+				}
+			}else{
+document.getElementById("alerta6").style.display = 'none';
+}
+		}
+			xmlhttp.open("POST","cliente.php",true);
+			
+
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("Correo="+document.getElementById('correo').value);
+
+
+		}
+function pedirValidacion(){
+
+		xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function()
+		{
+
+			if(xmlhttp.readyState==4){
+if(xmlhttp.responseText=='INVALIDA'){
+
+document.getElementById("alerta7").style.display = 'block';
+
+				}
+			}else{
+document.getElementById("alerta7").style.display = 'none';
+}
+		}
+			xmlhttp.open("POST","comprobar.php",true);
+			
+
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("pass="+document.getElementById('pass').value);
+
+
+		}
+	
+
+</script> 
+<body>
+<FONT SIZE="7">Registrate</FONT>
+<A HREF="layout.html" target="_blank">
+<span class="right"><a href="layout.html"> <img align=right src="http://www.veryicon.com/icon/ico/Object/Heartquake%20Prevention/Casa.ico" alt="Por si acaso" title="Información de la herramienta" height="50px"/></a></span>
+
+
+
+
+<div class="alert-danger"  id="alerta" style="display:none;">
+    <strong>Error!</strong> Complete todas las casillas marcadas con *.
+  </div>
+<div class="alert-danger"  id="alerta2" style="display:none;">
+    <strong>Error!</strong> El password debe contener minimo 6 caracteres.
+  </div>
+<div class="alert-danger"  id="alerta3" style="display:none;">
+    <strong>Error!</strong> El password y la confirmacion son diferentes.
+  </div>
+  <div class="alert-danger"  id="alerta4" style="display:none;">
+    <strong>Error!</strong> El correo electronico es incorrecto. 
+	El correo lo debe formar una palabra con un numero de 3 digitos al final y el dominio(@ikasle.ehu.es o @ikasle.ehu.eus).
+  </div>
+  <div class="alert-danger"  id="alerta5" style="display:none;">
+    <strong>Error!</strong> El telefono debe de tener por lo menos 9 digitos.
+  </div>
+<div class="alert-danger"  id="alerta6" style="display:none;">
+    <strong>Error!</strong> El alumno con ese correo no esta matriculado.
+  </div>
+<div class="alert-danger"  id="alerta7" style="display:none;">
+    <strong>Error!</strong> El password no es valido. Por favor introduzca otro.
+  </div>
+
+</a><BR>
+<HR noshade id="raya">
+<form id='registro' name='registro' method="post" action='RegistrarUsuarioConFoto.php' onSubmit='return obligatorios()' >  
+<p align=center id= "nombre"> Nombre:* <input type="text" name="Nombre" id="name">  
+<p align=center> Password:* <input type="password" name="pass"  id="pass" onBlur='pedirValidacion()' > </p>
+<p align=center> Confirm password:* <input type="password" name="Confirm password" id="confirm" onBlur='confirmacion()'></p>
+<p align=center> Correo:* <input type="text" name="Correo" id="correo"  onBlur='pedirDatos()'><p id="sino"></p></p>
+<p align=center> Telefono:* <input type="text" name="Telefono" id="telf" onBlur='validar_telefono()'> </p>
+<p align=center> Especialidad:* <select name="Especialidad" id="espe" onchange="otro()"> 
+<option value="Ingenieria del software">Ingenieria del software</option> 
+<option value="Ingenieria de computadores">Ingenieria de computadores</option> 
+<option value="Computacion">Computacion</option>
+<option value="Otro">Otro...</option> 
+</select></p>
+<p align=center id="area"> Tecnologias y herramientas: <TEXTAREA name="Comentario" > </TEXTAREA> </p>
+<p align=center> <input type="file" name="Archivo" id="up" size="23" > <input type=button onclick='imagens()' value="Mostrar" id="mostrar" size="23"><input type=button onclick='deshacer()' value="Deshacer" id="DI" size="23" ></p>
+<p align=center>  <input type="submit" >
+ </form>
+<address>Creada el 17 de septiembre del 2015<br>
+   Sistemas Web</address>
+</body>
+</html>
