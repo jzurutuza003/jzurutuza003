@@ -1,6 +1,6 @@
 <?php
 session_start();
-//if($_SESSION['Tipo']=='1'){
+if($_SESSION['Tipo']=='1'){
 		
 	$Correo=$_POST['Correo'];
 	$Pregunta=$_POST['Pregunta'];
@@ -32,5 +32,5 @@ $usu=mysql_connect("mysql.hostinger.es","u878461769_mysql","abcd1234");
 		
 		
 	header("Location:RevisarPreguntas.php");
-//}
+}
 ?>
