@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<assessmentItems>
+	
+<assessmentItem complexity="1" subject="el tiempo"><itemBody><p>Que dia es hoy</p></itemBody><correctResponse><value>18</value></correctResponse></assessmentItem><assessmentItem complexity="5" subject="el tiempo"><itemBody><p>Que tiempo hace hoy</p></itemBody><correctResponse><value>nublado</value></correctResponse></assessmentItem><assessmentItem complexity="5" subject="tematica"><itemBody><p>Pregunta</p></itemBody><correctResponse><value>respuesta</value></correctResponse></assessmentItem></assessmentItems>
