@@ -17,7 +17,7 @@ try{
 	if($count>0){
 		echo 'Pregunta existente en la base de datos';
 	}else{
-if($Complejidad > 0 $$ $Complejidad < 6){
+if($Complejidad > 0 && $Complejidad < 6){
 		$tabla="SELECT * FROM Quiz";
 		$tabla2 = $mysqli->query($tabla); 
 
